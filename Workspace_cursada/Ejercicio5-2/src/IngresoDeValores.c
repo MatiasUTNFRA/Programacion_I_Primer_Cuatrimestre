@@ -22,6 +22,7 @@ void MostrarNumeros(int numeros[], int cantidad)
         printf("%d\n", numeros[i]);
    }
 }
+
 /**
  * @fn void CargarRangoNumeros(int[], int, char[])
  * @brief Recibe un array de enteros, verifica que respete un rango de valores y los almacena.
@@ -33,18 +34,56 @@ void MostrarNumeros(int numeros[], int cantidad)
 void CargarRangoNumeros (int numeros [], int cantidad, char mensaje [])
 {
 	int i;
-	int valor;
 
 	for (i = 0 ; i < cantidad ; i++)
 	{
 		printf("%s", mensaje);
-	    scanf("%d", &valor);
+	    scanf("%d", &numeros[i]);
 
-	    while (!ValidarIntRango(valor, MIN, MAX))
+	    while (!ValidarIntRango(numeros[i], MIN, MAX))
 	    {
 	    	printf ("Dato invalido. Reingresar: ");
-	    	scanf ("%d", &valor);
+	    	scanf ("%d", &numeros[i]);
 	    }
-	    numeros [i] = valor;
 	}
+}
+/**
+ * @fn void MostrarNumerosPares(int[], int)
+ * @brief Muestra un listado de valores enteros que posee un array.
+ *
+ * @param numeros: array a utilizar.
+ * @param cantidad: cantidad de posiciones del array.
+ */
+void MostrarNumerosPares (int numeros [], int cantidad)
+{
+	int i;
+
+	for(i=0; i<cantidad; i++)
+	{
+
+	     if (VerificarParidad(numeros [i]) == 1)
+	     {
+	    	 printf ("Listado de los numeros pares: %d\n", numeros [i]);
+	     }
+	}
+}
+/**
+ * @fn void MostrarNumerosImpares(int[], int)
+ * @brief Muestra un listado de aquellos valores enteros que se encuentran en posiciones impares.
+ *
+ * @param numeros
+ * @param cantidad
+ */
+void MostrarNumerosImpares (int numeros [], int cantidad)
+{
+	int i;
+
+	for(i=0; i<cantidad; i++)
+	{
+
+		 if (i % 2 != 0)
+		 {
+			 printf ("Posicion de los numeros impares: %d\n", numeros [i]);
+		 }
+	 }
 }

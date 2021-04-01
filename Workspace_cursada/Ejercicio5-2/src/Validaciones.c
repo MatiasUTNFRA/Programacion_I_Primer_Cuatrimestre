@@ -68,6 +68,7 @@ int VerificarParidad (int valor)
 
 	if (valor % 2 == 0)
 	{
+		int UpperInt (int valor);
 		retorno = 1;
 	}
 	return retorno;

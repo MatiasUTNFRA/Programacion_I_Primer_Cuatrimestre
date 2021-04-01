@@ -18,14 +18,12 @@ Se deberán utilizar funciones y vectores.
 #define MIN -1000
 #define MAX 1000
 #define N 3
-
 int main(void)
 {
 	setbuf (stdout, NULL);
 
 	int numeros [N];
 	int i;
-	int auxiliar;
 	int contadorPositivos;
 	int contadorNegativos;
 	int acumulador;
@@ -43,22 +41,22 @@ int main(void)
 
 	for (i = 0 ; i < N ; i++)
 	{
-		auxiliar = ValidarTipoInt(numeros [i]);
 
-		if (auxiliar > 0)
+		if (ValidarTipoInt(numeros [i]) > 0)
 		{
 			contadorPositivos ++;
 		}
 		else
 		{
-			if (auxiliar < 0)
+			if (ValidarTipoInt(numeros [i]) < 0)
 			{
 				contadorNegativos ++;
 			}
 		}
+
 		if (VerificarParidad(numeros [i]) == 0)
 		{
-			printf ("Posiciones de los numeros impares: %d\n", i);
+			flagImpares = 1;
 
 			if (flagImpares == 0 || numeros [i] > mayorImpares)
 			{
@@ -68,7 +66,6 @@ int main(void)
 		}
 		else
 		{
-			printf ("Listado de los numeros pares: %d\n", numeros [i]);
 			flagListadoPares = 1;
 		}
 	}
@@ -87,10 +84,31 @@ int main(void)
 	acumulador = SumatoriaPares(numeros, N);
 
 	MostrarNumeros(numeros, N);
+	MostrarNumerosPares(numeros, N);
+	MostrarNumerosImpares(numeros, N);
 
 	printf ("Cantidad de positivos: %d\n", contadorPositivos);
 	printf ("Cantidad de negativos: %d\n", contadorNegativos);
 	printf ("Sumatoria de los pares: %d\n", acumulador);
 
 	return EXIT_SUCCESS;
+}
+void bubbleSort (int numeros[],int cantidad)
+{
+	int i;
+	int j;
+	int aux;
+
+	for(i=0;i<cantidad-1;i++)
+	{
+		for(j=i+1;j<cantidad;j++)
+		{
+			if(numeros[i]>numeros[j])
+			{
+				aux=numeros[i];
+				numeros[i]=numeros[j];
+				numeros[j]=aux;
+			}
+		}
+	}
 }
