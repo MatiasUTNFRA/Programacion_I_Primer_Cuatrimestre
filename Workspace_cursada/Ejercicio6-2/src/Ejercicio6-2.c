@@ -49,7 +49,7 @@ int main(void)
 				mivector[i] = mivector [j];
 				mivector[j] = auxiliar;
 
-				printf ("")
+
 			}
 		}
 	}
