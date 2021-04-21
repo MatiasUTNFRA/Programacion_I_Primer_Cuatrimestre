@@ -10,51 +10,42 @@ Listado 2 : -1,-5,-9,-12
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "InputOutput.h"
+#define N 4
 
 int main(void)
 {
 	setbuf (stdout, NULL);
 
-	int numeros [10] = {3, 1, 5, 9, 8, 2, -8, -7, -2, -4,};
-	int a;
-	int b;
-	int auxiliar;
-
-	/*for (a = 0 ; a < 6 - 1 ; a++)//Amarillo
-	{
-		for (b = a + 1 ; b < 6 ; b++) // Verde
-		{
-			if (numeros [a] < numeros [b]) // Criterio de ordenamiento
-			{
-				auxiliar = numeros [a];
-				numeros [a] = numeros [b];
-				numeros[b] = auxiliar;
-
-
-			}
-		}
-	}*/
-	int mivector[5] = {8, 1, 4, 9, 2};
+	int numeros [N];
 	int i;
 	int j;
 	int auxiliar;
 
-	for (i = 0 ; i < 5 - 1 ; i++)//Amarillo
+	GetIntsSecuence(numeros, N, "Ingresar numeros: ");
+
+	for (i = 0 ; i < N - 1 ; i++)
 	{
-		for (j = i + 1 ; j < 5 ; j++) // Verde
+		for (j = i + 1 ; j < N ; j++)
 		{
-			if (mivector[i] > mivector [j]) // Criterio de ordenamiento
-			{
-				auxiliar = mivector [i];
-				mivector[i] = mivector [j];
-				mivector[j] = auxiliar;
-
-
-			}
+				if (numeros [i] > numeros [j])
+				{
+					auxiliar = numeros [i];
+					numeros [i] = numeros [j];
+					numeros [j] = auxiliar;
+				}
+		}
+	 }
+	for (i = 0 ; i < N ; i++)
+	{
+		if (numeros [i] >= 0)
+		{
+			printf ("Listado positivos: %d\n", numeros [i]);
+		}
+		else
+		{
+			printf ("Listado negativos: %d\n", numeros [i]);
 		}
 	}
-
-
-
 	return EXIT_SUCCESS;
 }

@@ -17,7 +17,7 @@ Se deberán utilizar funciones y vectores.
 #include "OperacionesMatematicas.h"
 #define MIN -1000
 #define MAX 1000
-#define N 3
+#define N 10
 int main(void)
 {
 	setbuf (stdout, NULL);
@@ -92,23 +92,4 @@ int main(void)
 	printf ("Sumatoria de los pares: %d\n", acumulador);
 
 	return EXIT_SUCCESS;
-}
-void bubbleSort (int numeros[],int cantidad)
-{
-	int i;
-	int j;
-	int aux;
-
-	for(i=0;i<cantidad-1;i++)
-	{
-		for(j=i+1;j<cantidad;j++)
-		{
-			if(numeros[i]>numeros[j])
-			{
-				aux=numeros[i];
-				numeros[i]=numeros[j];
-				numeros[j]=aux;
-			}
-		}
-	}
 }
